@@ -3,3 +3,25 @@
 .component {
   padding: $base-size;
 }
+
+.paper {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.avatar {
+  margin: auto;
+  background: #ff6b6b;
+
+}
+
+.form {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.submit {
+  margin-top: 10px;
+}
