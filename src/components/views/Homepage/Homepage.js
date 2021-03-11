@@ -1,5 +1,4 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
@@ -11,19 +10,6 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import styles from './Homepage.module.scss';
 
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-    maxWidth: 752,
-  },
-  demo: {
-    backgroundColor: theme.palette.background.paper,
-  },
-  title: {
-    margin: theme.spacing(4, 0, 2),
-  },
-}));
 
 const demoOrder = [
   {
@@ -64,65 +50,66 @@ const demoCurrent = [
 ];
 
 export default function Homepage() {
-  const classes = useStyles();
 
   return (
-    <div className={classes.root}>
+    <div>
       <Typography className={styles.title} variant="h4">
         Managment platform for employees
       </Typography>
-      <Grid container spacing={2}>
-        <Grid item xs={12} md={6}>
-          <Typography variant="h6" className={classes.title}>
-            <div className={classes.root}>{'Today\'s orders'}</div>
-          </Typography>
-          <div className={classes.demo}>
-            <List>
-              {demoOrder.map ((value, i) => (
-                <ListItem key={i}>
-                  <ListItemAvatar>
-                    <Avatar>
-                      <ListIcon />
-                    </Avatar>
-                  </ListItemAvatar>
-                  <ListItemText
-                    primary={value.type}
-                    primaryTypographyProps={{ variant: 'overline' }}
-                    secondary={value.options}
-                    secondaryTypographyProps={{ variant: 'overline' }} 
-                  />      
-                </ListItem>
-              ))}
-            </List>
-          </div>
-        </Grid>   
-      </Grid>
-      <Grid container spacing={2}>
-        <Grid item xs={12} md={6}>
-          <Typography variant="h6" className={classes.title}>
-            <div className={classes.root}>{'Current lists'}</div>
-          </Typography>
-          <div className={classes.demo}>
-            <List>
-              {demoCurrent.map((value, i) => (
-                <ListItem key={i}>
-                  <ListItemAvatar>
-                    <Avatar>
-                      <RestaurantIcon/>
-                    </Avatar>
-                  </ListItemAvatar>
-                  <ListItemText
-                    primary={value.type}
-                    primaryTypographyProps={{ variant: 'overline' }}
-                    secondary={value.options}
-                    secondaryTypographyProps={{ variant: 'overline' }}
-                  />
-                </ListItem>
-              ))}
-            </List>
-          </div>
-        </Grid>   
-      </Grid>
+      <div className={styles.main}>
+        <Grid container spacing={2} justify="center">
+          <Grid item xs={12} md={6} className={styles.box}>
+            <Typography variant="h6">
+              {'Today\'s orders'}
+            </Typography>
+            <div>
+              <List>
+                {demoOrder.map ((value, i) => (
+                  <ListItem key={i}>
+                    <ListItemAvatar>
+                      <Avatar>
+                        <ListIcon />
+                      </Avatar>
+                    </ListItemAvatar>
+                    <ListItemText
+                      primary={value.type}
+                      primaryTypographyProps={{ variant: 'overline' }}
+                      secondary={value.options}
+                      secondaryTypographyProps={{ variant: 'overline' }} 
+                    />      
+                  </ListItem>
+                ))}
+              </List>
+            </div>
+          </Grid>   
+        </Grid>
+        <Grid container spacing={2} justify="center">
+          <Grid item xs={12} md={6} className={styles.box}>
+            <Typography variant="h6">
+              {'Current lists'}
+            </Typography>
+            <div>
+              <List>
+                {demoCurrent.map((value, i) => (
+                  <ListItem key={i}>
+                    <ListItemAvatar>
+                      <Avatar>
+                        <RestaurantIcon/>
+                      </Avatar>
+                    </ListItemAvatar>
+                    <ListItemText
+                      primary={value.type}
+                      primaryTypographyProps={{ variant: 'overline' }}
+                      secondary={value.options}
+                      secondaryTypographyProps={{ variant: 'overline' }}
+                    />
+                  </ListItem>
+                ))}
+              </List>
+            </div>
+          </Grid>   
+        </Grid>
+      </div>
     </div>
   );
 }

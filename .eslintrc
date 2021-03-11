@@ -27,6 +27,7 @@
       "react-app"
     ],
     "rules": {
+      "no-debugger" : "off",
       "indent": [
         "error",
         2,
@@ -48,6 +49,6 @@
         "error",
         "always-multiline"
       ],
-      "no-console": "off"
+      "no-console": "off"  
     }
   }
